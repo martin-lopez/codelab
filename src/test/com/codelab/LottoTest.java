@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
  */
 public class LottoTest {
 
-    // test constructor does not throw an exception
+    // test constructor does not raise an exception
     @Test
     public void testConstructor() {
         long[] numbers = {23L, 47L, 9L, 14L, 30L, 55L};
@@ -174,5 +174,73 @@ public class LottoTest {
         long[] numbers = {};
         Lotto lotto = new Lotto(15L,5L,2015L,numbers);
     }
+
+    // test case invalid day input
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException1() {
+        long[] numbers = {23L, 47L, 9L, 14L, 30L, 55L};
+        Lotto lotto = new Lotto(33L,5L,2015L,numbers);
+    }
+
+    // test case invalid month input
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException2() {
+        long[] numbers = {23L, 47L, 9L, 14L, 30L, 55L};
+        Lotto lotto = new Lotto(15L,20L,2015L,numbers);
+    }
+
+    // test case invalid year input
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException3() {
+        long[] numbers = {23L, 47L, 9L, 14L, 30L, 55L};
+        Lotto lotto = new Lotto(15L,5L,5007L,numbers);
+    }
+
+    // test case invalid number 1 input
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException4() {
+        long[] numbers = {65L, 47L, 9L, 14L, 30L, 55L};
+        Lotto lotto = new Lotto(15L,5L,2015L,numbers);
+    }
+
+    // test case invalid number 2 input
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException5() {
+        long[] numbers = {23L, 67L, 9L, 14L, 30L, 55L};
+        Lotto lotto = new Lotto(15L,5L,2015L,numbers);
+    }
+
+    // test case invalid number 3 input
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException6() {
+        long[] numbers = {23L, 47L, 86L, 14L, 30L, 55L};
+        Lotto lotto = new Lotto(15L,5L,2015L,numbers);
+    }
+
+    // test case invalid number 4 input
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException7() {
+        long[] numbers = {23L, 47L, 9L, 93L, 30L, 55L};
+        Lotto lotto = new Lotto(15L,5L,2015L,numbers);
+    }
+
+    // test case invalid number 5 input
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException8() {
+        long[] numbers = {23L, 47L, 9L, 14L, 64L, 55L};
+        Lotto lotto = new Lotto(15L,5L,2015L,numbers);
+    }
+
+    // test case invalid number 6 input
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException9() {
+        long[] numbers = {23L, 47L, 9L, 14L, 30L, 66L};
+        Lotto lotto = new Lotto(15L,5L,2015L,numbers);
+    }
+
+    /**
+     * we could also think of including test cases for inputs of the wrong type that will not raise a compile time
+     * error such as char inputs that are automatically casted into integers for Lotto() and getNumber()
+     */
 
 }

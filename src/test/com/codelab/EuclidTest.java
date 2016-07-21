@@ -16,6 +16,7 @@ public class EuclidTest {
     @Rule
 
     public Timeout globalTimeout = Timeout.seconds(10);
+
     // test for normal case with a>0, b>0 (small numbers)
     @Test
     public void gcdValid1() throws Exception{
@@ -71,6 +72,5 @@ public class EuclidTest {
         Euclid euclid = new Euclid();
         assertEquals(1, euclid.gcd(2,-3));
     }
-
 
 }

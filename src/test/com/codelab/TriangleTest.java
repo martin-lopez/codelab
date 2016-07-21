@@ -171,4 +171,22 @@ public class TriangleTest{
         assertEquals(-1, triangle.classify());
     }
 
+    // test case invalid input 1
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException1() {
+        Triangle triangle = new Triangle('s', 4, 5);
+    }
+
+    // test case invalid input 2
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException2() {
+        Triangle triangle = new Triangle(3, 's', 5);
+    }
+
+    // test case invalid input 3
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException3() {
+        Triangle triangle = new Triangle(3, 4, 's');
+    }
+
 }

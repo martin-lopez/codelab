@@ -17,7 +17,7 @@ public class EratosthenesTest {
     public Timeout globalTimeout = Timeout.seconds(10);
 
     // test for normal case
-    @Test(timeout = 10000)
+    @Test
     public void primesValid1() throws Exception {
         Eratosthenes era = new Eratosthenes();
         int[] expected = {2,3,0,5,0,7,0,0,0,11,0,13,0,0,0,17,0,19,0};
@@ -48,11 +48,18 @@ public class EratosthenesTest {
         assertArrayEquals(expected,era.primes(1));
     }
 
-    // test for negative array size exception (max<1)
+    // test for negative array size exception (max<1): invalid input
     @Test(expected = NegativeArraySizeException.class)
     public void primesInvalid1() throws Exception{
         Eratosthenes era = new Eratosthenes();
         era.primes(0);
+    }
+
+    // test for invalid input
+    @Test(expected = IllegalArgumentException.class)
+    public void primesInvalid2() throws Exception{
+        Eratosthenes era = new Eratosthenes();
+        era.primes('s');
     }
 
 

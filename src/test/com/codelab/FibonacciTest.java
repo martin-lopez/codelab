@@ -14,7 +14,7 @@ public class FibonacciTest {
 
     // since this is a recursive method we may want to check for infinite loops/taking too long
     @Rule
-    public Timeout globalTimeout = Timeout.seconds(10);
+    public Timeout globalTimeout = Timeout.seconds(100);
 
     // test case for n=0
     @Test
@@ -30,9 +30,16 @@ public class FibonacciTest {
         assertEquals(1,f.fib(1));
     }
 
-    //test for normal case
+    //test case for n=2
     @Test
     public void fibValid2(){
+        Fibonacci f = new Fibonacci();
+        assertEquals(1,f.fib(2));
+    }
+
+    //test for normal case
+    @Test
+    public void fibValid3(){
         Fibonacci f = new Fibonacci();
         assertEquals(1134903170,f.fib(45));
     }
@@ -42,6 +49,13 @@ public class FibonacciTest {
     public void fibValidLarge(){
         Fibonacci f = new Fibonacci();
         assertEquals(0x18b3c1d91e77decdL,f.fib(89));
+    }
+
+    // test case invalid input
+    @Test(expected = IllegalArgumentException.class)
+    public void InvalidInputException9() {
+        Fibonacci f = new Fibonacci();
+        f.fib('s');
     }
 
 
